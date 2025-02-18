@@ -1,13 +1,18 @@
 import React from "react";
 import type { ICheckoutProcess } from "./checkout-process.types";
 import { useCheckoutProcess } from "./checkout-process.context";
+import { Button } from "../ui";
 
-const CheckoutProgress = ({ children, onChange }: ICheckoutProcess) => {
+const CheckoutProgress = ({
+  children,
+  onChange,
+  isLoading = false,
+}: ICheckoutProcess) => {
   const { steps, currentStep, handlePrevious, isMobile } = useCheckoutProcess();
 
   const visibleSteps = isMobile
     ? steps.filter(
-        (step) => step.id === currentStep.id && step.id !== steps.length
+        (step) => step.id === currentStep.id && step.id !== steps.length,
       )
     : steps;
 
@@ -17,7 +22,7 @@ const CheckoutProgress = ({ children, onChange }: ICheckoutProcess) => {
         {visibleSteps.map((step, index) => (
           <div key={index} className="flex items-center">
             <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full text-white font-bold transition-all ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full font-bold text-white transition-all ${
                 step.id === currentStep.id ? "bg-primaryColor" : "bg-gray-300"
               }`}
             >
@@ -26,14 +31,14 @@ const CheckoutProgress = ({ children, onChange }: ICheckoutProcess) => {
             <div
               className={`ml-2 text-sm ${
                 step.id === currentStep.id
-                  ? "text-primaryColor font-bold"
-                  : "text-gray-300 font-medium"
+                  ? "font-bold text-primaryColor"
+                  : "font-medium text-gray-300"
               }`}
             >
               {step.label}
             </div>
             {step.id < visibleSteps.length && (
-              <div className="w-12 h-0.5 bg-gray-300 mx-2" />
+              <div className="mx-2 h-0.5 w-12 bg-gray-300" />
             )}
           </div>
         ))}
@@ -41,20 +46,16 @@ const CheckoutProgress = ({ children, onChange }: ICheckoutProcess) => {
       {children}
       {!(currentStep.id === steps.length) && (
         <div className="flex flex-row justify-between gap-4">
-          <button
+          <Button
             onClick={handlePrevious}
-            disabled={currentStep.id === 1}
-            className="bg-black uppercase text-white px-4 py-4 md:w-[200px] rounded-md disabled:opacity-10"
+            disabled={currentStep.id === 1 || isLoading}
           >
             Voltar
-          </button>
-          <div className="flex flex-row justify-end align-end">
-            <button
-              onClick={onChange}
-              className="bg-black uppercase text-white px-4 py-4 md:w-[200px] rounded-md disabled:opacity-10"
-            >
-              Continuar
-            </button>
+          </Button>
+          <div className="align-end flex flex-row justify-end">
+            <Button onClick={onChange} disabled={isLoading}>
+              {currentStep.id === steps.length - 1 ? "Finalizar" : "Continuar"}
+            </Button>
           </div>
         </div>
       )}

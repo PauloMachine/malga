@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center gap-10">
+    <div className="flex flex-col-reverse items-center justify-center gap-10 md:flex-row md:justify-between">
       <Image
         src="/malga-logo.svg"
         alt="Logo"

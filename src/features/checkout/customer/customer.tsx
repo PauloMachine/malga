@@ -26,7 +26,7 @@ const Customer = () => {
 
   return (
     <div className="flex flex-col gap-7">
-      <div className="flex gap-5 flex-col md:flex-row">
+      <div className="flex flex-col gap-5 md:flex-row">
         <Controller
           name="customer.firstName"
           control={control}
@@ -57,7 +57,7 @@ const Customer = () => {
         />
       </div>
 
-      <div className="flex gap-5 flex-col md:flex-row">
+      <div className="flex flex-col gap-5 md:flex-row">
         <Controller
           name="customer.document.type"
           control={control}
@@ -86,7 +86,7 @@ const Customer = () => {
                 field.onChange(
                   documentType === "CPF"
                     ? maskCPF(e.target.value)
-                    : maskCNPJ(e.target.value)
+                    : maskCNPJ(e.target.value),
                 )
               }
               label="Número do documento"
@@ -97,7 +97,7 @@ const Customer = () => {
         />
       </div>
 
-      <div className="flex gap-5 flex-col md:flex-row">
+      <div className="flex flex-col gap-5 md:flex-row">
         <Controller
           name="customer.address.city"
           control={control}
@@ -142,7 +142,7 @@ const Customer = () => {
         />
       </div>
 
-      <div className="flex gap-5 flex-col md:flex-row">
+      <div className="flex flex-col gap-5 md:flex-row">
         <Controller
           name="customer.address.street"
           control={control}

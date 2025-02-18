@@ -1,6 +1,7 @@
 export interface ICheckoutProcess {
   children: React.ReactNode;
   onChange: () => void;
+  isLoading?: boolean;
 }
 
 export type TStep = {

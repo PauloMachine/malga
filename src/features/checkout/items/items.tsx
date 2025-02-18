@@ -1,55 +1,38 @@
-import { useFormContext } from "react-hook-form";
+import { useGetItems } from "@/hooks/items.hook";
 import type { TItem } from "./items.types";
-import type { ICheckout } from "../checkout.types";
-import { useEffect } from "react";
+import { formatCurrencyBRL } from "@/utils/currencyBRL";
+import ItemsSkeleton from "./items.skeleton";
 
 const Items = () => {
-  const { setValue } = useFormContext<ICheckout>();
-  const items: TItem[] = [
-    {
-      name: "Camiseta T-Shirt Nike Preta",
-      quantity: 1,
-      amount: 132.45,
-    },
-    {
-      name: "Calça Nike",
-      quantity: 2,
-      amount: 212.01,
-    },
-  ];
+  const { data, isPending } = useGetItems();
 
-  const amount = items?.reduce((acc, item) => acc + item.amount, 0);
-
-  const data = { items, amount };
-
-  useEffect(() => {
-    setValue("amount", data.amount);
-    setValue("items", data.items);
-  }, [data, setValue]);
+  if (isPending) return <ItemsSkeleton />;
 
   return (
     <div className="flex flex-col">
-      {items?.map((item: TItem, index: number) => (
+      {data?.items?.map((item: TItem, index: number) => (
         <div
           key={`item-${index}`}
           className={`${
             index !== 0 && "border-t"
-          } border-gray border-solid p-5 gap-2 flex flex-col md:flex-row md:justify-between`}
+          } border-gray flex flex-col gap-2 border-solid p-5 md:flex-row md:justify-between`}
         >
-          <div className="flex">
-            <span className="text-black">{item.name}</span>
-          </div>
+          <span className="text-black">{item.name}</span>
           <div className="flex justify-between md:gap-5">
             <span className="text-black">x{item.quantity}</span>
-            <span className="text-black flex-nowrap">R$ {item.amount}</span>
+            <span className="flex-nowrap text-black">
+              {formatCurrencyBRL(item.amount)}
+            </span>
           </div>
         </div>
       ))}
 
-      {amount && (
-        <div className="bg-gray-100 rounded-md p-5 gap-10 mt-5 flex justify-between">
-          <span className="text-black font-bold">Total</span>
-          <span className="text-black font-bold">R$ {amount}</span>
+      {data?.amount && (
+        <div className="mt-5 flex justify-between gap-10 rounded-md bg-gray-100 p-5">
+          <span className="font-bold text-black">Total</span>
+          <span className="font-bold text-black">
+            {formatCurrencyBRL(data.amount)}
+          </span>
         </div>
       )}
     </div>

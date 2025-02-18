@@ -1,18 +1,16 @@
-import NextApp, { AppContext, AppInitialProps, AppProps } from "next/app";
+import { AppProps } from "next/app";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import App from "@/App";
 import "@/assets/styles/globals.css";
 
+const queryClient = new QueryClient();
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <App>
-      <Component {...pageProps} />
-    </App>
+    <QueryClientProvider client={queryClient}>
+      <App>
+        <Component {...pageProps} />
+      </App>
+    </QueryClientProvider>
   );
 }
-
-MyApp.getInitialProps = async (
-  context: AppContext
-): Promise<AppInitialProps> => {
-  const ctx = await NextApp.getInitialProps(context);
-  return ctx;
-};

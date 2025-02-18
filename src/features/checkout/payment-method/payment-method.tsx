@@ -34,7 +34,7 @@ const PaymentMethod = () => {
       />
 
       <div className="flex flex-col gap-7">
-        <div className="flex gap-5 flex-col md:flex-row">
+        <div className="flex flex-col gap-5 md:flex-row">
           <Controller
             name="paymentMethod.card.holderName"
             control={control}
@@ -74,7 +74,7 @@ const PaymentMethod = () => {
           />
         </div>
 
-        <div className="flex gap-5 flex-col md:flex-row">
+        <div className="flex flex-col gap-5 md:flex-row">
           <Controller
             name="paymentMethod.card.expirationDate"
             control={control}

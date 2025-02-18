@@ -1,11 +1,18 @@
 import Head from "next/head";
+import { Tabs } from "./components/ui";
 
 const App = ({ children }: { children: React.ReactNode }) => {
+  const tabs = [
+    { label: "Checkout", path: "/checkout" },
+    { label: "Admin", path: "/admin" },
+  ];
+
   return (
-    <div className="flex justify-center align-center">
+    <div className="flex flex-col items-center justify-center gap-[50px]">
       <Head>
-        <title>Checkout</title>
+        <title>Malga</title>
       </Head>
+      <Tabs tabs={tabs} />
       {children}
     </div>
   );
