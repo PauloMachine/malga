@@ -15,9 +15,9 @@ export default function Tabs({ tabs }: ITabs) {
         <button
           key={tab.path}
           onClick={() => handleTabClick(tab.path)}
-          className={`w-[100px] px-4 py-2 text-sm font-medium ${
+          className={`text-md w-[150px] px-4 py-2 font-medium ${
             pathname?.includes(tab.path)
-              ? "rounded-md bg-white text-blue-500"
+              ? "rounded-md bg-white text-blue-700"
               : "text-white"
           } `}
         >

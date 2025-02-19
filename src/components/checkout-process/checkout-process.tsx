@@ -18,7 +18,7 @@ const CheckoutProgress = ({
             <div
               className={`flex h-8 w-8 items-center justify-center rounded-full font-bold text-white transition-all ${
                 step.id === currentStep.id
-                  ? "bg-primaryColor"
+                  ? "bg-black"
                   : "hidden bg-gray-300 md:flex"
               }`}
             >
@@ -27,7 +27,7 @@ const CheckoutProgress = ({
             <div
               className={`ml-2 text-[13px] ${
                 step.id === currentStep.id
-                  ? "font-bold text-primaryColor"
+                  ? "font-bold text-black"
                   : "hidden font-medium text-gray-300 md:flex"
               }`}
             >
