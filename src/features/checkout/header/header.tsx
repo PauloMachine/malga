@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="flex flex-col-reverse items-center justify-center gap-10 md:flex-row md:justify-between">
       <Image
-        src="/malga-logo.svg"
+        src="/images/malga-logo.svg"
         alt="Logo"
         width={100}
         height={100}
@@ -12,7 +12,7 @@ const Header = () => {
         unoptimized
       />
       <Image
-        src="/checkout-process.png"
+        src="/images/checkout-process.png"
         alt="Processo"
         width={300}
         height={300}

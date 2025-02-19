@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import type { ITransaction, TTransaction } from "@/types/transactions.types";
-import { readAsyncDatabase } from "../utils/async-database";
+import { readAsyncDatabase } from "../utils/database";
 import { formatCardNumber } from "../utils/format-card-number";
 
 export default async function handler(
@@ -8,9 +8,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   try {
-    const db: TTransaction = await readAsyncDatabase(
-      "src/pages/api/db/transactions.db.json",
-    );
+    const db: TTransaction = await readAsyncDatabase("transactions.db.json");
 
     if (req.method === "GET") {
       const transactionId = Number(req.query.transactionId);

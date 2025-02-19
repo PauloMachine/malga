@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
 
+const publicPath = path.join(process.cwd(), "public/db");
+
 export const readAsyncDatabase = async <T>(dbJson: string): Promise<T> => {
-  const dbPath = path.resolve(process.cwd(), dbJson);
+  const dbPath = path.join(publicPath, dbJson);
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -20,7 +22,7 @@ export const writeAsyncDatabase = async <T>(
   data: T,
   dbJson: string,
 ): Promise<void> => {
-  const dbPath = path.resolve(process.cwd(), dbJson);
+  const dbPath = path.join(publicPath, dbJson);
 
   return new Promise<void>((resolve, reject) => {
     setTimeout(() => {
@@ -31,6 +33,18 @@ export const writeAsyncDatabase = async <T>(
           resolve();
         }
       });
+    }, 1500);
+  });
+};
+
+export const writeMemoryDatabase = async <T>(data: T): Promise<T> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(data);
+      } catch (error) {
+        reject(error);
+      }
     }, 1500);
   });
 };

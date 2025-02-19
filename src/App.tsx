@@ -10,7 +10,7 @@ const App = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-[40px]">
       <Head>
-        <link rel="icon" href="/malga-icon.ico" />
+        <link rel="icon" href="/images/malga-icon.ico" />
         <title>Malga</title>
       </Head>
       <Tabs tabs={tabs} />

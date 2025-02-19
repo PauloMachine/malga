@@ -1,15 +1,17 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import type { ITransaction, TTransaction } from "@/types/transactions.types";
-import { readAsyncDatabase, writeAsyncDatabase } from "../utils/async-database";
-
-const dbJson = "src/pages/api/db/transactions.db.json";
+import {
+  readAsyncDatabase,
+  writeAsyncDatabase,
+  writeMemoryDatabase,
+} from "../utils/database";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   try {
-    const db: TTransaction = await readAsyncDatabase(dbJson);
+    const db: TTransaction = await readAsyncDatabase("transactions.db.json");
 
     if (req.method === "GET") {
       const transactions = db.transactions.sort(
@@ -27,7 +29,11 @@ export default async function handler(
       newTransaction.createdAt = new Date().toISOString();
 
       db.transactions.unshift(newTransaction);
-      await writeAsyncDatabase(db, dbJson);
+      try {
+        await writeAsyncDatabase(db, "transactions.db.json");
+      } catch {
+        await writeMemoryDatabase(newTransaction);
+      }
 
       return res.status(201).json(newTransaction);
     }

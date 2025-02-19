@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import type { IItem, TItem } from "@/types/items.types";
-import { readAsyncDatabase } from "../utils/async-database";
+import { readAsyncDatabase } from "../utils/database";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,9 +8,7 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     try {
-      const db: IItem = await readAsyncDatabase(
-        "src/pages/api/db/items.db.json",
-      );
+      const db: IItem = await readAsyncDatabase("items.db.json");
 
       const amount = db.items.reduce(
         (acc: number, item: TItem) => acc + item.amount,
