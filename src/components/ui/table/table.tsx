@@ -3,7 +3,7 @@ import type { IColumn, ITable } from "./table.types";
 
 const Table = <T,>({ columns, data, isLoading, onRowClick }: ITable<T>) => {
   return (
-    <div className="max-w-[250px] overflow-x-auto sm:max-w-full">
+    <div className="max-w-full overflow-x-auto">
       <table className="min-w-full border-x-2 border-white">
         <thead className="h-[50px] bg-white">
           <tr>

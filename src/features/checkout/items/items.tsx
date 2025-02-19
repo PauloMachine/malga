@@ -24,11 +24,11 @@ const Items = () => {
           key={`item-${index}`}
           className={`${
             index !== 0 && "border-t"
-          } border-gray flex flex-col gap-5 border-solid p-3 md:flex-row md:justify-between`}
+          } border-gray flex flex-row justify-between gap-5 border-solid p-3`}
         >
           <div className="flex flex-col">
             <span className="text-black">{item.name}</span>
-            <span className="text-xs text-gray-700">
+            <span className="text-sm text-gray-700">
               {item.quantity} x {formatCurrencyBRL(item.amount / item.quantity)}
             </span>
           </div>
@@ -39,7 +39,7 @@ const Items = () => {
       ))}
 
       {checkoutItems?.amount && (
-        <div className="mt-5 flex justify-between gap-10 rounded-md bg-gray-100 p-3">
+        <div className="mt-5 flex justify-between gap-10 rounded-md bg-gray-200 p-3">
           <span className="font-bold text-black">Total</span>
           <span className="font-bold text-black">
             {formatCurrencyBRL(checkoutItems.amount)}

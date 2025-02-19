@@ -28,7 +28,7 @@ const CheckoutProgress = ({
               className={`ml-2 text-[13px] ${
                 step.id === currentStep.id
                   ? "font-bold text-black"
-                  : "hidden font-medium text-gray-300 md:flex"
+                  : "hidden font-medium text-gray-400 md:flex"
               }`}
             >
               {step.label}

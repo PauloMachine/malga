@@ -10,7 +10,7 @@ export default function Tabs({ tabs }: ITabs) {
   };
 
   return (
-    <div className="flex rounded-md border border-white">
+    <div className="flex flex-col rounded-md border border-white sm:flex-row">
       {tabs.map((tab: ITab) => (
         <button
           key={tab.path}
