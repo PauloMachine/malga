@@ -2,7 +2,7 @@ import "react-credit-cards-2/dist/es/styles-compiled.css";
 import Cards from "react-credit-cards-2";
 import { useFormContext, Controller } from "react-hook-form";
 import { Input, Select } from "@/components/ui";
-import type { ICheckout } from "../checkout.types";
+import type { ICheckout } from "../../../types/checkout.types";
 import {
   maskCardNumber,
   maskExpiryDate,
@@ -17,7 +17,7 @@ const PaymentMethod = () => {
   const {
     control,
     watch,
-    formState: { defaultValues, errors },
+    formState: { errors },
   } = useFormContext<ICheckout>();
 
   const installmentsOptions = [1, 2, 3];
@@ -122,8 +122,8 @@ const PaymentMethod = () => {
                 label="Parcelas"
                 id="paymentMethod-card-installments"
                 options={installmentsOptions}
-                defaultValue={defaultValues?.paymentMethod?.card?.installments}
                 error={errors?.paymentMethod?.card?.installments?.message}
+                onChange={(e) => field.onChange(Number(e.target.value))}
               />
             )}
           />

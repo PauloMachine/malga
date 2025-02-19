@@ -7,5 +7,6 @@ export interface IInput {
   error?: string;
   required?: boolean;
   value?: string;
+  defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

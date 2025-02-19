@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Fallback = ({ status }: { status?: string }) => {
   return (
-    <div className="mt-10 flex flex-col items-center justify-center gap-3 md:flex-row">
+    <div className="flex flex-col items-center justify-center gap-3 md:mt-10 md:flex-row">
       {status === "authorized" ? (
         <Image src="/success.gif" alt="sucesso" width={100} height={100} />
       ) : (
         <Image src="/failed.gif" alt="erro" width={100} height={100} />
       )}
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center">
         <span className="font-bold">
           {status === "authorized"
             ? "Pedido realizado!"

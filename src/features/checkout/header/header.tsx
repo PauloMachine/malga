@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Banner = () => {
+const Header = () => {
   return (
     <div className="flex flex-col-reverse items-center justify-center gap-10 md:flex-row md:justify-between">
       <Image
@@ -9,6 +9,7 @@ const Banner = () => {
         width={100}
         height={100}
         priority
+        unoptimized
       />
       <Image
         src="/checkout-process.png"
@@ -16,9 +17,10 @@ const Banner = () => {
         width={300}
         height={300}
         priority
+        unoptimized
       />
     </div>
   );
 };
 
-export default Banner;
+export default Header;

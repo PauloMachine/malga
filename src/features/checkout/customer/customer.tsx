@@ -1,28 +1,18 @@
 import { useFormContext, Controller } from "react-hook-form";
 import { Input, Select } from "@/components/ui";
-import type { ICheckout } from "../checkout.types";
-import { maskCPF, maskCNPJ, validateDocumentNumber } from "./customer.validate";
-import { useEffect } from "react";
 import { maskOnlyLetters } from "@/utils/masks";
+import type { ICheckout } from "../../../types/checkout.types";
+import { maskCPF, maskCNPJ, validateDocumentNumber } from "./customer.validate";
 
 const Customer = () => {
   const {
     control,
     watch,
-    getValues,
-    resetField,
-    formState: { defaultValues, errors },
+    formState: { errors },
   } = useFormContext<ICheckout>();
 
   const documentTypeOptions = ["CPF", "CNPJ"];
   const documentType = watch("customer.document.type");
-
-  useEffect(() => {
-    const currentDocumentType = getValues("customer.document.type");
-    if (currentDocumentType !== documentType) {
-      resetField("customer.document.number");
-    }
-  }, [documentType, getValues, resetField]);
 
   return (
     <div className="flex flex-col gap-7">
@@ -68,7 +58,6 @@ const Customer = () => {
               label="Tipo do documento"
               id="customer-document-type"
               options={documentTypeOptions}
-              defaultValue={defaultValues?.customer?.document?.type}
             />
           )}
         />
@@ -113,20 +102,6 @@ const Customer = () => {
           )}
         />
         <Controller
-          name="customer.address.country"
-          control={control}
-          rules={{ required: "* O país é obrigatório" }}
-          render={({ field }) => (
-            <Input
-              {...field}
-              label="País"
-              id="customer-address-country"
-              error={errors?.customer?.address?.country?.message}
-              onChange={(e) => field.onChange(maskOnlyLetters(e.target.value))}
-            />
-          )}
-        />
-        <Controller
           name="customer.address.state"
           control={control}
           rules={{ required: "* O estado é obrigatório" }}
@@ -136,6 +111,20 @@ const Customer = () => {
               label="Estado"
               id="customer-address-state"
               error={errors?.customer?.address?.state?.message}
+              onChange={(e) => field.onChange(maskOnlyLetters(e.target.value))}
+            />
+          )}
+        />
+        <Controller
+          name="customer.address.country"
+          control={control}
+          rules={{ required: "* O país é obrigatório" }}
+          render={({ field }) => (
+            <Input
+              {...field}
+              label="País"
+              id="customer-address-country"
+              error={errors?.customer?.address?.country?.message}
               onChange={(e) => field.onChange(maskOnlyLetters(e.target.value))}
             />
           )}

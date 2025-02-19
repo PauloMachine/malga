@@ -7,7 +7,6 @@ const Select = ({
   options,
   error,
   required = false,
-  defaultValue,
   value,
   ...rest
 }: ISelect) => {
@@ -17,9 +16,8 @@ const Select = ({
         id={id}
         name={name}
         required={required}
-        defaultValue={defaultValue}
-        value={value || ""}
-        className={`peer block w-full appearance-none rounded-lg border bg-white px-3 py-4 text-sm text-black focus:outline-none focus:ring-0 ${
+        value={value}
+        className={`peer block w-full appearance-none rounded-lg border bg-white px-3 py-3 text-sm text-black focus:outline-none focus:ring-0 ${
           error
             ? "border-red-500 focus:border-red-500"
             : "border-gray-300 focus:border-black"

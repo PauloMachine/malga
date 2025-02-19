@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import type {
   ICheckoutProcessContext,
   ICheckoutProcessProvider,
@@ -14,7 +14,6 @@ export const CheckoutProcessProvider = ({
   steps,
 }: ICheckoutProcessProvider) => {
   const [currentStep, setCurrentStep] = useState<TStep>(steps[0]);
-  const [isMobile, setIsMobile] = useState(false);
 
   const handleNext = () => {
     if (currentStep.id < steps.length) {
@@ -30,16 +29,6 @@ export const CheckoutProcessProvider = ({
     }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <CheckoutProcessContext.Provider
       value={{
@@ -48,7 +37,6 @@ export const CheckoutProcessProvider = ({
         steps,
         handleNext,
         handlePrevious,
-        isMobile,
       }}
     >
       {children}

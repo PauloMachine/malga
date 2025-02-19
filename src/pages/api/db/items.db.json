@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "name": "Camiseta Nike",
+      "quantity": 1,
+      "amount": 132.45
+    },
+    {
+      "name": "Calça Nike",
+      "quantity": 2,
+      "amount": 412.01
+    }
+  ]
+}

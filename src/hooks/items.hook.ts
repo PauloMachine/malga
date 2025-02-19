@@ -1,5 +1,5 @@
 import { useQuery, type UseQueryOptions } from "@tanstack/react-query";
-import type { IItem } from "@/features/checkout/items/items.types";
+import type { IItem } from "@/types/items.types";
 import { getItems } from "@/services/items.service";
 
 export const useGetItems = () => {

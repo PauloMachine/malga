@@ -16,7 +16,7 @@ const Input = ({
       <input
         id={id}
         placeholder={placeholder}
-        className={`peer block w-full appearance-none rounded-lg border bg-white px-3 py-4 text-sm text-black focus:outline-none focus:ring-0 ${error ? "border-red-500" : "border-gray-300"} `}
+        className={`peer block w-full appearance-none rounded-lg border bg-white px-3 py-3 text-sm text-black focus:outline-none focus:ring-0 ${error ? "border-red-500" : "border-gray-300"} `}
         type={type}
         name={name}
         value={value || ""}

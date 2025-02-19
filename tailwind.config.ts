@@ -14,6 +14,9 @@ export default {
         foreground: "var(--foreground)",
         primaryColor: "var(--primaryColor)",
       },
+      screens: {
+        sm: "480px",
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,224 @@
+{
+  "transactions": [
+    {
+      "customer": {
+        "document": {
+          "type": "CPF",
+          "number": "123.123.123-21"
+        },
+        "firstName": "João ",
+        "lastName": "Gomide",
+        "address": {
+          "city": "Medianeira",
+          "state": "Paraná",
+          "country": "Brasil",
+          "street": "Rua dos bobos",
+          "number": "0",
+          "neighborhood": "Torta"
+        }
+      },
+      "paymentMethod": {
+        "type": "card",
+        "card": {
+          "installments": 1,
+          "holderName": " João Gomide",
+          "number": "6062 8259 0629 2588",
+          "expirationDate": "06/2029",
+          "cvv": "151"
+        }
+      },
+      "items": [
+        {
+          "name": "Camiseta Nike",
+          "quantity": 1,
+          "amount": 132.45
+        },
+        {
+          "name": "Calça Nike",
+          "quantity": 2,
+          "amount": 412.01
+        }
+      ],
+      "amount": 544.46,
+      "id": 1739994190457,
+      "status": "authorized",
+      "createdAt": "2025-02-19T19:43:10.457Z"
+    },
+    {
+      "customer": {
+        "document": {
+          "type": "CPF",
+          "number": "894.984.984-98"
+        },
+        "firstName": "Caio Luiz",
+        "lastName": "Souza",
+        "address": {
+          "city": "Pato Branco",
+          "state": "Paraná",
+          "country": "Brasil",
+          "street": "Árvore verde",
+          "number": "192",
+          "neighborhood": "Concordia"
+        }
+      },
+      "paymentMethod": {
+        "type": "card",
+        "card": {
+          "installments": 3,
+          "holderName": "Caio Souza",
+          "number": "6011 1453 8155 7534",
+          "expirationDate": "12/2029",
+          "cvv": "151"
+        }
+      },
+      "items": [
+        {
+          "name": "Camiseta Nike",
+          "quantity": 1,
+          "amount": 132.45
+        },
+        {
+          "name": "Calça Nike",
+          "quantity": 2,
+          "amount": 412.01
+        }
+      ],
+      "amount": 544.46,
+      "id": 1739994074949,
+      "status": "failed",
+      "createdAt": "2025-02-19T19:41:14.949Z"
+    },
+    {
+      "customer": {
+        "document": {
+          "type": "CNPJ",
+          "number": "13.213.123/2132-13"
+        },
+        "firstName": "Adelar",
+        "lastName": "da Silva",
+        "address": {
+          "city": "Francisco Beltrão",
+          "state": "Paraná",
+          "country": "Brasil",
+          "street": "Rua Rubens",
+          "number": "80A",
+          "neighborhood": "Meredyk"
+        }
+      },
+      "paymentMethod": {
+        "type": "card",
+        "card": {
+          "installments": 1,
+          "holderName": "Adelar da Silva",
+          "number": "5062 4788 3249 0512",
+          "expirationDate": "06/2027",
+          "cvv": "121"
+        }
+      },
+      "items": [
+        {
+          "name": "Camiseta Nike",
+          "quantity": 1,
+          "amount": 132.45
+        },
+        {
+          "name": "Calça Nike",
+          "quantity": 2,
+          "amount": 412.01
+        }
+      ],
+      "amount": 544.46,
+      "id": 1739993942668,
+      "status": "failed",
+      "createdAt": "2025-02-19T19:39:02.668Z"
+    },
+    {
+      "customer": {
+        "document": {
+          "type": "CPF",
+          "number": "231.654.654-65"
+        },
+        "firstName": "Paulo Guilherme",
+        "lastName": "Santiago",
+        "address": {
+          "city": "Dois Vizinhos",
+          "state": "Paraná",
+          "country": "Brasil",
+          "street": "Rua Costa e Silva",
+          "number": "123",
+          "neighborhood": "São Francisco de Assis"
+        }
+      },
+      "paymentMethod": {
+        "type": "card",
+        "card": {
+          "installments": 2,
+          "holderName": "Paulo Guilherme Santiago",
+          "number": "4024 0071 5487 0223",
+          "expirationDate": "06/2028",
+          "cvv": "455"
+        }
+      },
+      "items": [
+        {
+          "name": "Camiseta Nike",
+          "quantity": 1,
+          "amount": 132.45
+        },
+        {
+          "name": "Calça Nike",
+          "quantity": 2,
+          "amount": 412.01
+        }
+      ],
+      "amount": 544.46,
+      "id": 1739993077566,
+      "status": "failed",
+      "createdAt": "2025-02-19T19:24:37.566Z"
+    },
+    {
+      "customer": {
+        "document": {
+          "type": "CNPJ",
+          "number": "16.515.678/9785-29"
+        },
+        "firstName": "Luiza de Albuquerque",
+        "lastName": "Santiago",
+        "address": {
+          "city": "Cascavel",
+          "state": "Paraná",
+          "country": "Brasil",
+          "street": "Rua dos alemães",
+          "number": "123",
+          "neighborhood": "Da Luz"
+        }
+      },
+      "paymentMethod": {
+        "type": "card",
+        "card": {
+          "installments": 3,
+          "holderName": "Luiza Santiago",
+          "number": "6011 6593 0082 1540",
+          "expirationDate": "06/2031",
+          "cvv": "158"
+        }
+      },
+      "items": [
+        {
+          "name": "Camiseta Nike",
+          "quantity": 1,
+          "amount": 132.45
+        },
+        {
+          "name": "Calça Nike",
+          "quantity": 2,
+          "amount": 412.01
+        }
+      ],
+      "amount": 544.46,
+      "id": 1739989294915,
+      "status": "authorized",
+      "createdAt": "2025-02-19T18:21:34.915Z"
+    }
+  ]
+}
