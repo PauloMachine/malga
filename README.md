@@ -6,12 +6,17 @@ Este projeto consiste em um sistema de Checkout para um e-commerce de grande esc
 
 Site: https://checkout-malga-santiago.vercel.app
 
+## Pages Speed
+
+- [x] Relatório
+      ![Pages Speed](/public/images/pages-speed.png)
+
 ## Tecnologias Utilizadas
 
 - **Framework:** Next.js
 - **Bibliotecas:** React, TypeScript, Tailwind CSS
 - **Gerenciamento de Estado:** React Hooks
-- **Mock de API:** Next.js
+- **Mock de API:** Next.js Pages API
 - **Validação de Formulários:** Card Validator
 
 ## Estrutura do Projeto
@@ -71,8 +76,3 @@ checkout/
    ```sh
    npm run cypress
    ```
-
-## Pages Speed
-
-- [x] Relatório
-      ![Pages Speed](/public/images/pages-speed.png)
