@@ -56,16 +56,23 @@ checkout/
    ```sh
    npm install
    ```
-3. Crie um arquivo .env (importante para o Mock do Next):
+3. Crie um arquivo .env (\* Mock Next e Testes Automatizados):
    ```sh
+    CYPRESS_PUBLIC_MALGA_URL=http://localhost:3000
     NEXT_PUBLIC_MALGA_API_URL=http://localhost:3000
    ```
 4. Inicie o projeto:
+
    ```sh
    npm run dev
+   ```
+
+5. Rodar os testes automatizados:
+   ```sh
+   npm run cypress
    ```
 
 ## Pages Speed
 
 - [x] Relatório
-  - ![Pages Speed](/public/images/pages-speed.png)
+      ![Pages Speed](/public/images/pages-speed.png)
