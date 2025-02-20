@@ -33,3 +33,7 @@ export const maskExpiryDate = (value: string) => {
     .replace(/(\d{2})(\d)/, "$1/$2")
     .slice(0, 7);
 };
+
+export const maskCVV = (value: string) => {
+  return value.replace(/\D/g, "").slice(0, 3);
+};

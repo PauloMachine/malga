@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useFormContext, Controller } from "react-hook-form";
 import { Input, Select } from "@/components/ui";
 import { maskOnlyLetters } from "@/utils/masks";
@@ -8,11 +9,20 @@ const Customer = () => {
   const {
     control,
     watch,
+    setValue,
     formState: { errors },
   } = useFormContext<ICheckout>();
 
   const documentTypeOptions = ["CPF", "CNPJ"];
   const documentType = watch("customer.document.type");
+  const prevDocumentType = useRef<string | undefined>(documentType);
+
+  useEffect(() => {
+    if (documentType !== prevDocumentType.current) {
+      setValue("customer.document.number", "");
+      prevDocumentType.current = documentType;
+    }
+  }, [documentType, setValue, prevDocumentType]);
 
   return (
     <div className="flex flex-col gap-7">

@@ -5,6 +5,7 @@ import { Input, Select } from "@/components/ui";
 import type { ICheckout } from "../../../types/checkout.types";
 import {
   maskCardNumber,
+  maskCVV,
   maskExpiryDate,
   validateCardNumber,
   validateCvv,
@@ -106,6 +107,7 @@ const PaymentMethod = () => {
                 label="Código de verificação"
                 id="paymentMethod-card-cvv"
                 error={errors?.paymentMethod?.card?.cvv?.message}
+                onChange={(e) => field.onChange(maskCVV(e.target.value))}
               />
             )}
           />
