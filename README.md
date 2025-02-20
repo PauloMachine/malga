@@ -56,7 +56,11 @@ checkout/
    ```sh
    npm install
    ```
-3. Inicie o projeto:
+3. Crie um arquivo .env (importante para o Mock do Next):
+   ```sh
+    NEXT_PUBLIC_MALGA_API_URL=http://localhost:3000
+   ```
+4. Inicie o projeto:
    ```sh
    npm run dev
    ```
