@@ -54,8 +54,8 @@ checkout/
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/PauloMachine/checkout.git
-   cd checkout
+   git clone https://github.com/PauloMachine/malga.git
+   cd malga
    ```
 2. Instale as dependências:
    ```sh
